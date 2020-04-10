@@ -6,6 +6,7 @@ const filePath = "logs.txt";
 const estimator = require("../estimator");
 
 exports.getEstimates = (req, res) => {
+  res.set('Content-Type', 'application/json');
   const data = req.body;
   let estimates;
   estimates = estimator(data);
