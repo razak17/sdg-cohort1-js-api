@@ -18,11 +18,11 @@ exports.getEstimatesXml = (req, res) => {
   const data = req.body;
   let estimates;
   estimates = estimator(data);
-  res.status(200).send(jsonxml(estimator(data)));
+  res.status(200).send(jsonxml(estimates));
 };
 
 exports.getLogData = (req, res) => {
-  res.set("Content-Type", "text/plain");
+  res.set("Content-Type", "text/html");
   const logData = fs.readFileSync(filePath, "utf8");
   res.status(200).send( logData);
 };
