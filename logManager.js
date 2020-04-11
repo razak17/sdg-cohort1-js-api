@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const filePath = 'logs/logs.txt';
+const filePath = 'logs/logs.json';
 
 const logManager = () => {
   fs.access(filePath, (error) => {

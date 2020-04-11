@@ -1,7 +1,7 @@
 const fs = require("fs");
 const jsonxml = require('jsontoxml');
 
-const filePath = "logs.txt";
+const filePath = "logs.json";
 
 const estimator = require("../estimator");
 
@@ -22,7 +22,7 @@ exports.getEstimatesXml = (req, res) => {
 };
 
 exports.getLogData = (req, res) => {
-  res.set("Content-Type", "text/html");
+  res.set('Content-Type', 'application/json');
   const logData = fs.readFileSync(filePath, "utf8");
   res.status(200).send(logData);
 };
