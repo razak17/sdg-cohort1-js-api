@@ -22,7 +22,7 @@ exports.getEstimatesXml = (req, res) => {
 };
 
 exports.getLogData = (req, res) => {
+  const logData = fs.readFileSync(filePath);
   res.set('Content-Type', 'text/plain');
-  const logData = fs.readFileSync(filePath, "utf8");
   res.status(200).send(logData);
 };

@@ -1,3 +1,6 @@
-GET		/api/v1/on-covid-19/logs		200		15.399 ms
-GET		/api/v1/on-covid-19/logs		200		18.984 ms
-GET		/api/v1/on-covid-19/logs		200		20.5 ms
+GET		/api/v1/on-covid-19/logs		200		9.101 ms
+GET		/api/v1/on-covid-19/logs		200		12.32 ms
+GET		/api/v1/on-covid-19/logs		200		13.58 ms
+GET		/api/v1/on-covid-19/logs		200		15.086 ms
+GET		/api/v1/on-covid-19/logs		200		16.501 ms
+GET		/api/v1/on-covid-19/logs		200		18.218 ms
