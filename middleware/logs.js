@@ -3,12 +3,10 @@ const fs = require('fs');
 const start = new Date();
 
 const logs = (req, res, next) => {
-  let logData = [];
-  logData.push(`"${req.method}\t\t${req.url}\t\t${res.statusCode}\t\t${
-        new Date() - start
-      } ms",`);
+  const logData = (`${req.method}\t\t${req.url}\t\t${res.statusCode}\t\t${
+        (new Date() - start) / 1000} ms`);
 
-  fs.appendFile('logs.json', `${logData}\n`, () => {});
+  fs.appendFile('logs.txt', `${logData}\n`, () => {});
   next();
 };
 
