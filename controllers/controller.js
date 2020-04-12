@@ -23,6 +23,6 @@ exports.getEstimatesXml = (req, res) => {
 
 exports.getLogData = (req, res) => {
   const logData = fs.readFileSync(filePath);
-  res.set('Content-Type', 'text/plain');
+  res.type('Content-Type', 'text/plain');
   res.status(200).send(logData);
 };
