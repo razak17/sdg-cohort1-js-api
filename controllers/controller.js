@@ -2,7 +2,7 @@ const fs = require("fs");
 const jsonxml = require('jsontoxml');
 const path = require('path');
 
-const estimator = require("../estimator/estimator");
+const covid19ImpactEstimator = require("../estimator/estimator");
 const filePath = path.join(__dirname, '../logs/logs.txt');
 
 
@@ -15,7 +15,7 @@ exports.getEstimates = (req, res) => {
     res.set('Content-Type', 'application/json');
     const data = req.body;
     let estimates;
-    estimates = estimator(data);
+    estimates = covid19ImpactEstimator(data);
     res.status(200).json({
       success: true,
       data: estimates
@@ -36,7 +36,7 @@ exports.getEstimatesXml = (req, res) => {
     res.set('Content-Type', 'application/xml');
     const data = req.body;
     let estimates;
-    estimates = jsonxml(estimator(data));
+    estimates = jsonxml(covid19ImpactEstimator(data));
     res.status(200).send(estimates);
   } catch (error) {
       res.status(404).json({
