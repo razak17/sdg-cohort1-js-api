@@ -4,16 +4,25 @@ const {
   getEstimates,
   getEstimatesXml,
   getLogData,
+  deleteLogs
 } = require('../controllers/controller');
 
 const router = express.Router();
 
-router.route('/').post(getEstimates);
+router
+    .route('/')
+    .post(getEstimates);
 
-router.route('/json').post(getEstimates);
+router
+    .route('/json')
+    .post(getEstimates);
 
-router.route('/xml').post(getEstimatesXml);
+router
+    .route('/xml')
+    .post(getEstimatesXml);
 
-router.route('/logs').get(getLogData);
+router
+    .route('/logs')
+    .get(getLogData)
 
 module.exports = router;

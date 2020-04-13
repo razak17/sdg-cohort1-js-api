@@ -1,7 +1,7 @@
 const {
   impactEstimates,
   severeImpactEstimates
-} = require('./utils/handlers');
+} = require('./handlers');
 
 const covid19ImpactEstimator = (data) => ({
   data,

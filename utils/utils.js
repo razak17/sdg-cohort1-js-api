@@ -1,19 +1,16 @@
-exports.convertToDays = (data) => {
-  if (data.periodType === 'months') {
-    return data.timeToElapse * 30;
-  }
-  if (data.periodType === 'weeks') {
-    return data.timeToElapse * 7;
-  }
-  return data.timeToElapse;
+const fs = require('fs');
+
+exports.getTimeInMilliseconds = (startTime) => {
+  const NS_PER_SEC = 1e9; // time in nano seconds
+  const NS_TO_MS = 1e6; // time in milli seconds
+  const timeDifference = process.hrtime(startTime);
+  return (timeDifference[0] * NS_PER_SEC + timeDifference[1]) / NS_TO_MS;
 };
 
-exports.requestedTime = (data) => {
-  if (data.periodType === 'months') {
-    return 2 ** Math.trunc((data.timeToElapse * 30) / 3);
-  }
-  if (data.periodType === 'weeks') {
-    return 2 ** Math.trunc((data.timeToElapse * 7) / 3);
-  }
-  return 2 ** Math.trunc(data.timeToElapse / 3);
+exports.saveToFile = (data, filename) => {
+  fs.appendFile(filename, `${data}\n`, (err) => {
+    if (err) {
+      throw new Error('something went wrong.');
+    }
+  });
 };
